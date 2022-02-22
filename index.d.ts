@@ -1,8 +1,13 @@
 import { Options } from 'html2canvas';
 
+interface UseScreenshotOptions {
+  type?: string;
+  quality?: any;
+}
+
 type TakeScreenShot = (node: HTMLElement, options: Options) => string;
 
-type UseScreenshot = ({ type, quality }) => [string, TakeScreenShot, { error: Error }]
+type UseScreenshot = ({ type, quality }: UseScreenshotOptions) => [string, TakeScreenShot, { error: Error }]
 
 type CreateFileName = (extension: string, parts: string[]) => string;
 
